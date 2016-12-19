@@ -1,0 +1,17 @@
+*.jks
+*.cer
+
+# Spring Boot
+config/
+
+target/
+build/
+.gradle/
+
+# IntelliJ
+\.idea/workspace\.xml
+out/
+
+# Eclipse
+.project
+.classpath
