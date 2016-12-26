@@ -61,7 +61,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-undertow'
     compile 'org.springframework.security.oauth:spring-security-oauth2'
 
-    compile 'org.springframework.data:spring-data-couchbase:2.1.5.RELEASE'
+    compile 'org.springframework.data:spring-data-couchbase:2.1.6.RELEASE'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.springframework.restdocs:spring-restdocs-mockmvc'
