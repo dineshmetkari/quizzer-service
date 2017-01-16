@@ -1,6 +1,4 @@
-# Quiz Service
-
-**Support this project**
+**Support this work**
 <!-- BADGES/ -->
 <span class="badge-paypal">
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=MA847TR65D4N2" title="Donate to this project using PayPal">
@@ -15,22 +13,26 @@
 </a></span>
 <!-- /BADGES -->
 
+Quiz Service
+=
+
+
 [Support this work with crypto-currencies like BitCoin, Ethereum, Ardor, and Komodo!](http://me.loxal.net/coin-support.html)
 
-## Initialization
+# Initialization
 
-### Couchbase
+## Couchbase
     CREATE PRIMARY INDEX `#primary` ON `quizzer` USING GSI
 
-## Run 
+# Run 
 
     ./gradlew bootRun -D spring.config.name=prod,local,config
     open http://localhost:8200
     
-## Test
+# Test
 
     SPRING_CONFIG_NAME=prod,local,config ./gradlew clean test
 
-## Release
+# Release
 
     ./release.sh
