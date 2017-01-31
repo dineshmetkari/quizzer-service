@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2017 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package net.loxal.quizzer.dto;
@@ -10,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.couchbase.core.mapping.Document;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +26,7 @@ public class Vote {
     @NotNull
     @Field
     private String session;
-    @Min(value = 0)
+    //    @Min(value = 0) // not supported since spring-data-couchbase:2.2.0
     @NotNull
     @Field
     private List<Integer> answers = Collections.emptyList();
