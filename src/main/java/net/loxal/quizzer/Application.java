@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2017 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package net.loxal.quizzer;
@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.cassandra.config.java.AbstractCassandraConfiguration;
+import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 import org.springframework.data.couchbase.config.AbstractCouchbaseConfiguration;
 import org.springframework.data.couchbase.repository.config.EnableCouchbaseRepositories;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,9 +36,29 @@ public class Application {
         return principal;
     }
 
+    @EnableCassandraRepositories
+    @Configuration
+    static class ConfigurationCassandra extends AbstractCassandraConfiguration {
+
+        @Value("${spring.data.cassandra.contact-points}")
+        private String contactPoints;
+        @Value("${spring.data.cassandra.keyspace-name}")
+        private String keyspaceName;
+
+        @Override
+        public String getContactPoints() {
+            return contactPoints;
+        }
+
+        @Override
+        protected String getKeyspaceName() {
+            return keyspaceName;
+        }
+    }
+
     @EnableCouchbaseRepositories
     @Configuration
-    static class Config extends AbstractCouchbaseConfiguration {
+    static class ConfigurationCouchbase extends AbstractCouchbaseConfiguration {
 
         @Value("${couchbase.cluster.bucket}")
         private String bucketName;
