@@ -7,20 +7,25 @@ package net.loxal.quizzer.controller;
 import net.loxal.quizzer.dto.Certificate;
 import net.loxal.quizzer.service.CertificateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.cassandra.core.CassandraOperations;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping(CertificateController.ENDPOINT)
-public class CertificateController {
-    public static final String ENDPOINT = "/certificates";
+@RequestMapping(UptimeController.ENDPOINT)
+public class UptimeController {
+    public static final String ENDPOINT = "/uptimes";
     private final CertificateService service;
 
+    private final CassandraOperations cassandraOperations;
+
     @Autowired
-    CertificateController(CertificateService service) {
+    UptimeController(CertificateService service, CassandraOperations cassandraOperations) {
         this.service = service;
+        this.cassandraOperations = cassandraOperations;
     }
 
     @PostMapping
@@ -39,6 +44,12 @@ public class CertificateController {
             @RequestParam(value = "user", required = true, defaultValue = "anonymous")
                     String user
     ) {
+        String cqlAll = "select * from usertable";
+        List<Object> results = cassandraOperations.select(cqlAll, Object.class);
+        for (Object p : results) {
+            System.out.println("p = " + p);
+        }
+
         return service.retrieveByUser(user);
     }
 

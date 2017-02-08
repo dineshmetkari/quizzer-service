@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2017 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package net.loxal.quizzer.service;
@@ -23,7 +23,6 @@ public class CertificateService {
         this.repository = repository;
         this.voteRepository = voteRepository;
     }
-
     public Certificate create(Certificate creation) {
         return repository.save(creation);
     }

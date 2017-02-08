@@ -42,6 +42,7 @@ public class Application {
 
         @Value("${spring.data.cassandra.contact-points}")
         private String contactPoints;
+
         @Value("${spring.data.cassandra.keyspace-name}")
         private String keyspaceName;
 

@@ -13,11 +13,15 @@
 </a></span>
 <!-- /BADGES -->
 
+[Support this work with crypto-currencies like BitCoin, Ethereum, Ardor, and Komodo!](http://me.loxal.net/coin-support.html)
+
 Quiz Service
 =
 
+# Pre-requisite / Configuration
 
-[Support this work with crypto-currencies like BitCoin, Ethereum, Ardor, and Komodo!](http://me.loxal.net/coin-support.html)
+Add a [configuration profile](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties) 
+to the `config` folder inside this project.
 
 # Initialization
 
