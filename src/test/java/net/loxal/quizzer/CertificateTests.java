@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+ * Copyright 2017 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
 package net.loxal.quizzer;
@@ -8,13 +8,12 @@ import net.loxal.quizzer.controller.CertificateController;
 import net.loxal.quizzer.dto.Certificate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.inject.Inject;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -41,7 +40,7 @@ public class CertificateTests {
         UPDATED.setIncorrectAnswers(EXPECTED.getIncorrectAnswers() + 1);
     }
 
-    @Inject
+    @Autowired
     private TestRestTemplate testRestTemplate;
 
     @Test
