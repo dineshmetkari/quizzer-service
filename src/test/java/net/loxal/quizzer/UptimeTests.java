@@ -4,6 +4,7 @@
 
 package net.loxal.quizzer;
 
+import net.loxal.quizzer.dto.Uptime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -38,7 +39,7 @@ public class UptimeTests {
         } catch (DataAccessException e) {
             LOG.warn(e.getMessage());
         }
-        final String createTable = "create table test_table (consentReference uuid primary key, session varchar, node varchar)";
+        final String createTable = "create table test_table (endpoint varchar primary key, intervalInSeconds int)";
         try {
             cassandraOperations.execute(createTable);
         } catch (DataAccessException e) {
@@ -47,17 +48,17 @@ public class UptimeTests {
             cassandraOperations.execute(createTable);
         }
 
-        cassandraOperations.execute("insert into test_table (consentReference, session) values (7A05BBA5-D950-41C8-AE40-4B691058C3FB, 'some-session')");
-        cassandraOperations.execute("update test_table set session = 'some-other-session' where consentReference = 7A05BBA5-D950-41C8-AE40-4B691058C3FB");
+        cassandraOperations.execute("insert into test_table (endpoint, intervalInSeconds) values ('http://example.com', 9)");
+        cassandraOperations.execute("update test_table set intervalInSeconds = 5 where endpoint = 'http://example.com'");
 
-        final List<Object> selection = cassandraOperations.select("select * from test_table", Object.class);
+        final List<Uptime> selection = cassandraOperations.select("select * from test_table", Uptime.class);
         assertFalse(selection.isEmpty());
         selection.forEach(e -> LOG.info(e.toString()));
 
-        cassandraOperations.execute("delete from test_table where consentReference = 7A05BBA5-D950-41C8-AE40-4B691058C3FB");
+        cassandraOperations.execute("delete from test_table where endpoint = 'http://example.com'");
 
         LOG.info("Table content after deletion");
-        final List<Object> selectAfterDelete = cassandraOperations.select("select * from test_table", Object.class);
+        final List<Uptime> selectAfterDelete = cassandraOperations.select("select * from test_table", Uptime.class);
         selectAfterDelete.forEach(e -> LOG.info(e.toString()));
         assertTrue(selectAfterDelete.isEmpty());
     }
