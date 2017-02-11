@@ -39,26 +39,26 @@ public class UptimeTests {
         } catch (DataAccessException e) {
             LOG.warn(e.getMessage());
         }
-        final String createTable = "create table test_table (endpoint varchar primary key, intervalInSeconds int)";
+        final String createTable = "create table uptime_test (endpoint varchar primary key, intervalInSeconds int)";
         try {
             cassandraOperations.execute(createTable);
         } catch (DataAccessException e) {
             LOG.warn(e.getMessage());
-            cassandraOperations.execute("drop table test_table");
+            cassandraOperations.execute("drop table uptime_test");
             cassandraOperations.execute(createTable);
         }
 
-        cassandraOperations.execute("insert into test_table (endpoint, intervalInSeconds) values ('http://example.com', 9)");
-        cassandraOperations.execute("update test_table set intervalInSeconds = 5 where endpoint = 'http://example.com'");
+        cassandraOperations.execute("insert into uptime_test (endpoint, intervalInSeconds) values ('http://example.com', 9)");
+        cassandraOperations.execute("update uptime_test set intervalInSeconds = 5 where endpoint = 'http://example.com'");
 
-        final List<Uptime> selection = cassandraOperations.select("select * from test_table", Uptime.class);
+        final List<Uptime> selection = cassandraOperations.select("select * from uptime_test", Uptime.class);
         assertFalse(selection.isEmpty());
         selection.forEach(e -> LOG.info(e.toString()));
 
-        cassandraOperations.execute("delete from test_table where endpoint = 'http://example.com'");
+        cassandraOperations.execute("delete from uptime_test where endpoint = 'http://example.com'");
 
         LOG.info("Table content after deletion");
-        final List<Uptime> selectAfterDelete = cassandraOperations.select("select * from test_table", Uptime.class);
+        final List<Uptime> selectAfterDelete = cassandraOperations.select("select * from uptime_test", Uptime.class);
         selectAfterDelete.forEach(e -> LOG.info(e.toString()));
         assertTrue(selectAfterDelete.isEmpty());
     }
