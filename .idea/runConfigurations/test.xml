@@ -4,7 +4,7 @@
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
       <option name="externalSystemIdString" value="GRADLE" />
-      <option name="scriptParameters" value="" />
+      <option name="scriptParameters" value="-D spring.config.name=prod,local,config" />
       <option name="taskDescriptions">
         <list />
       </option>
@@ -13,7 +13,7 @@
           <option value="test" />
         </list>
       </option>
-      <option name="vmOptions" value="-Dspring.config.name=prod,local,config" />
+      <option name="vmOptions" value="" />
     </ExternalSystemSettings>
     <method />
   </configuration>

@@ -36,6 +36,9 @@ repositories {
     mavenCentral()
 }
 
+/**
+ * Not required when `SPRING_CONFIG_NAME=prod,local,config` is passed before running `test` or `bootRun`
+ */
 [test, bootRun].each { task ->
     configure(task) { // this is executed twice because of the for-each loop
         systemProperties System.properties
@@ -48,26 +51,15 @@ configurations {
 }
 
 dependencies {
-//    compile 'org.springframework.boot:spring-boot-starter'
-//    compile 'org.springframework.boot:spring-boot-starter-actuator'
-//    compile 'org.springframework.boot:spring-boot-actuator-docs'
-//    compile 'org.springframework.boot:spring-boot-starter-cloud-connectors'
     compile 'org.springframework.boot:spring-boot-starter-hateoas'
-//    compile 'org.springframework.boot:spring-boot-starter-integration'
-//    compile 'org.springframework.boot:spring-boot-starter-jersey'
     compile 'org.springframework.boot:spring-boot-starter-security'
-//    compile 'org.springframework.boot:spring-boot-starter-validation'
-//    compile 'org.springframework.boot:spring-boot-starter-websocket'
     compile 'org.springframework.boot:spring-boot-starter-undertow'
-//    compile 'org.springframework.security.oauth:spring-security-oauth2'
 
     compile 'org.springframework.data:spring-data-couchbase:2.2.0.RELEASE'
     compile 'org.springframework.data:spring-data-cassandra:1.5.0.RELEASE'
-    compile 'io.netty:netty-all:4.1.8.Final'
     // required to pass Couchbase integration tests while having Cassandra in-place
+    compile 'io.netty:netty-all:4.1.8.Final'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.springframework.restdocs:spring-restdocs-mockmvc'
-
-//    runtime 'org.springframework.boot:spring-boot-devtools'
 }

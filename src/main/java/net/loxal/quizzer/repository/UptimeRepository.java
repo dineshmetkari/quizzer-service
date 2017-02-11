@@ -4,13 +4,10 @@
 
 package net.loxal.quizzer.repository;
 
-import net.loxal.quizzer.dto.Certificate;
+import net.loxal.quizzer.dto.Uptime;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Set;
-
 @Repository
-public interface UptimeRepository extends CrudRepository<Certificate, String> {
-    Set<Certificate> findByUser(String user);
+public interface UptimeRepository extends CrudRepository<Uptime, String> {
 }

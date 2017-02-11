@@ -4,7 +4,7 @@
 
 package net.loxal.quizzer.service;
 
-import net.loxal.quizzer.dto.Certificate;
+import net.loxal.quizzer.dto.Uptime;
 import net.loxal.quizzer.repository.UptimeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,15 +18,15 @@ public class UptimeService {
         this.repository = repository;
     }
 
-    public Certificate create(Certificate creation) {
+    public Uptime create(Uptime creation) {
         return repository.save(creation);
     }
 
-    public Certificate retrieve(String id) {
+    public Uptime retrieve(String id) {
         return repository.findOne(id);
     }
 
-    public Certificate update(Certificate update) {
+    public Uptime update(Uptime update) {
         return repository.save(update);
     }
 
