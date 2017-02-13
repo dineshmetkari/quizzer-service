@@ -4,6 +4,7 @@
 
 package net.loxal.quizzer;
 
+import com.datastax.driver.core.ConsistencyLevel;
 import net.loxal.quizzer.dto.Uptime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,54 +13,72 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.cassandra.core.WriteOptions;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.cassandra.core.CassandraOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = PollTests.Config.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UptimeTests {
     private final static Logger LOG = LoggerFactory.getLogger(UptimeTests.class);
-
+    private static final Uptime EXPECTED = new Uptime("http://example.com", 9);
+    private static final Uptime EXPECTED_UPDATE = new Uptime("http://example.com", 5);
     @Autowired
     private TestRestTemplate testRestTemplate;
-
     @Autowired
     private CassandraOperations cassandraOperations;
 
     @Test
-    public void sometest() throws Exception {
+    public void create() throws Exception {
+        Uptime inserted = cassandraOperations.insert(EXPECTED);
+        assertNotNull(inserted);
+
+        List<Uptime> created = cassandraOperations.select("select * from uptime", Uptime.class);
+        assertFalse(created.isEmpty());
+        assertEquals(EXPECTED, created.get(0));
+    }
+
+    @Test
+    public void delete() throws Exception {
+        cassandraOperations.deleteAll(Uptime.class);
+        List<Uptime> readFromEmptyTable = cassandraOperations.select("select * from uptime", Uptime.class);
+        assertTrue(readFromEmptyTable.isEmpty());
+    }
+
+    @Test
+    public void update() throws Exception {
+        Uptime updated = cassandraOperations.update(EXPECTED_UPDATE, WriteOptions.builder()
+                .consistencyLevel(ConsistencyLevel.ANY)
+                .fetchSize(1)
+                .tracing(false)
+                .readTimeout(100, TimeUnit.MILLISECONDS)
+                .ttl(10)
+                .withTracing()
+                .build());
+
+        assertEquals(EXPECTED_UPDATE, updated);
+    }
+
+    @Test
+    public void init() throws Exception {
         try {
-            cassandraOperations.execute("create keyspace test_keyspace with replication = {'class':'SimpleStrategy','replication_factor' : 2}");
+            cassandraOperations.execute("create keyspace quizzer with replication = {'class':'SimpleStrategy','replication_factor' : 2}");
         } catch (DataAccessException e) {
             LOG.warn(e.getMessage());
         }
-        final String createTable = "create table uptime_test (endpoint varchar primary key, intervalInSeconds int)";
+        final String createTable = "create table uptime (endpoint varchar primary key, intervalInSeconds int)";
         try {
             cassandraOperations.execute(createTable);
         } catch (DataAccessException e) {
             LOG.warn(e.getMessage());
-            cassandraOperations.execute("drop table uptime_test");
+            cassandraOperations.execute("drop table uptime");
             cassandraOperations.execute(createTable);
         }
-
-        cassandraOperations.execute("insert into uptime_test (endpoint, intervalInSeconds) values ('http://example.com', 9)");
-        cassandraOperations.execute("update uptime_test set intervalInSeconds = 5 where endpoint = 'http://example.com'");
-
-        final List<Uptime> selection = cassandraOperations.select("select * from uptime_test", Uptime.class);
-        assertFalse(selection.isEmpty());
-        selection.forEach(e -> LOG.info(e.toString()));
-
-        cassandraOperations.execute("delete from uptime_test where endpoint = 'http://example.com'");
-
-        LOG.info("Table content after deletion");
-        final List<Uptime> selectAfterDelete = cassandraOperations.select("select * from uptime_test", Uptime.class);
-        selectAfterDelete.forEach(e -> LOG.info(e.toString()));
-        assertTrue(selectAfterDelete.isEmpty());
     }
 }
