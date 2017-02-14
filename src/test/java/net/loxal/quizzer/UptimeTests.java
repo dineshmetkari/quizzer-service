@@ -13,11 +13,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.cassandra.core.Cancellable;
 import org.springframework.cassandra.core.WriteOptions;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.cassandra.core.CassandraOperations;
+import org.springframework.data.cassandra.core.WriteListener;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +31,7 @@ import static org.junit.Assert.*;
 public class UptimeTests {
     private final static Logger LOG = LoggerFactory.getLogger(UptimeTests.class);
     private static final Uptime EXPECTED = new Uptime("http://example.com", 9);
-    private static final Uptime EXPECTED_UPDATE = new Uptime("http://example.com", 5);
+    private static final Uptime EXPECTED_UPDATE = new Uptime(EXPECTED.getEndpoint(), 5);
     @Autowired
     private TestRestTemplate testRestTemplate;
     @Autowired
@@ -53,7 +56,18 @@ public class UptimeTests {
 
     @Test
     public void update() throws Exception {
-        Uptime updated = cassandraOperations.update(EXPECTED_UPDATE, WriteOptions.builder()
+        Cancellable updateable = cassandraOperations.updateAsynchronously(EXPECTED_UPDATE, new WriteListener<Uptime>() {
+            @Override
+            public void onWriteComplete(Collection<Uptime> entities) {
+                assertFalse(entities.isEmpty());
+                entities.forEach(e -> assertEquals(EXPECTED_UPDATE, e));
+            }
+
+            @Override
+            public void onException(Exception x) {
+                LOG.error(x.getMessage());
+            }
+        }, WriteOptions.builder()
                 .consistencyLevel(ConsistencyLevel.ANY)
                 .fetchSize(1)
                 .tracing(false)
@@ -61,8 +75,6 @@ public class UptimeTests {
                 .ttl(10)
                 .withTracing()
                 .build());
-
-        assertEquals(EXPECTED_UPDATE, updated);
     }
 
     @Test
