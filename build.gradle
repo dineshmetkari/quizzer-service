@@ -36,15 +36,6 @@ repositories {
     mavenCentral()
 }
 
-/**
- * Not required when `SPRING_CONFIG_NAME=prod,local,config` is passed before running `test` or `bootRun`
- */
-[test, bootRun].each { task ->
-    configure(task) { // this is executed twice because of the for-each loop
-        systemProperties System.properties
-    }
-}
-
 configurations {
     compile.exclude module: 'spring-boot-starter-tomcat'
     compile.exclude module: 'undertow-websockets-jsr'
