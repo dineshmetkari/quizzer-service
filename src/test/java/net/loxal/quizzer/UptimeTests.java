@@ -32,8 +32,10 @@ public class UptimeTests {
     private final static Logger LOG = LoggerFactory.getLogger(UptimeTests.class);
     private static final Uptime EXPECTED = new Uptime("http://example.com", 9);
     private static final Uptime EXPECTED_UPDATE = new Uptime(EXPECTED.getEndpoint(), 5);
+
     @Autowired
     private TestRestTemplate testRestTemplate;
+
     @Autowired
     private CassandraOperations cassandraOperations;
 
