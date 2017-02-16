@@ -10,6 +10,6 @@ WORKDIR /home/$APP_USER
 ### /execute as non-root user
 
 ADD build/libs/*.jar app/
-ENV SPRING_CONFIG_NAME prod,local,config
+#ENV SPRING_CONFIG_NAME prod,local,config
 
 CMD ["java", "-jar", "-Xmx64m", "app/quizzer-service-1.0.0.jar"]
