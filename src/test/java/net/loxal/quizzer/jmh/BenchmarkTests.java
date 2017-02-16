@@ -4,7 +4,6 @@
 
 package net.loxal.quizzer.jmh;
 
-import net.loxal.quizzer.UptimeTests;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openjdk.jmh.annotations.*;
@@ -17,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class BenchmarkTests {
-    private final static Logger LOG = LoggerFactory.getLogger(UptimeTests.class);
+    private final static Logger LOG = LoggerFactory.getLogger(BenchmarkTests.class);
 
     @BenchmarkMode(Mode.SingleShotTime)
     @Benchmark

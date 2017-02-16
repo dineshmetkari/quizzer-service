@@ -4,7 +4,8 @@
 #export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 #eval "$(docker-machine env default)"
 
-SPRING_CONFIG_NAME=prod,local,config ./gradlew clean build
+#SPRING_CONFIG_NAME=prod,local,config ./gradlew clean build
+./gradlew clean build
 
 DOCKER_IMAGE_NAME=quizzer
 
