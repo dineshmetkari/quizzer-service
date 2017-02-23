@@ -26,6 +26,7 @@ to the `config` folder inside this project.
 # Initialization
 
 ## Couchbase
+
     CREATE PRIMARY INDEX `#primary` ON `quizzer` USING GSI
 
 # Run 
@@ -36,6 +37,10 @@ to the `config` folder inside this project.
 # Test
 
     SPRING_CONFIG_NAME=prod,local,config ./gradlew clean test
+
+# Benchmark / Performance Test
+
+    ./gradlew clean jmh
 
 # Release
 

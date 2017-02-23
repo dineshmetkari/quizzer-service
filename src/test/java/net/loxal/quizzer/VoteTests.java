@@ -41,7 +41,13 @@ public class VoteTests {
     private static final String MULTIPLE_ANSWERS_INCORRECT_ID = "multiple-answers-incorrect-vote-id";
     private static final String SESSION_SINGLE_ANSWER_ID = "session-single-answer-id";
     private static final String SESSION_MULTIPLE_ANSWERS_ID = "session-multiple-answers-id";
-
+    public static final Vote EXPECTED_MULTIPLE_ANSWERS_CORRECT = new Vote(
+            MULTIPLE_ANSWERS_CORRECT_ID,
+            SESSION_MULTIPLE_ANSWERS_ID,
+            MULTIPLE_ANSWERS_POLL_ID,
+            CORRECT_ANSWERS,
+            TakeSimpsonsQuiz.TEST_USER_NAME
+    );
     private static final Vote EXPECTED_UNREVIEWABLE = new Vote(
             SINGLE_ANSWER_VOTE_ID,
             SESSION_SINGLE_ANSWER_ID,
@@ -84,13 +90,6 @@ public class VoteTests {
             CORRECT_ANSWER,
             TakeSimpsonsQuiz.TEST_USER_NAME
     );
-    private static final Vote EXPECTED_MULTIPLE_ANSWERS_CORRECT = new Vote(
-            MULTIPLE_ANSWERS_CORRECT_ID,
-            SESSION_MULTIPLE_ANSWERS_ID,
-            MULTIPLE_ANSWERS_POLL_ID,
-            CORRECT_ANSWERS,
-            TakeSimpsonsQuiz.TEST_USER_NAME
-    );
     private static final Vote EXPECTED_MULTIPLE_ANSWERS_CORRECT_UPDATE_TO_INCORRECT = new Vote(
             MULTIPLE_ANSWERS_CORRECT_ID,
             SESSION_MULTIPLE_ANSWERS_ID,
@@ -130,6 +129,7 @@ public class VoteTests {
             Arrays.asList("First Option", "Second Option", "Third Option", "Fourth Option"),
             Collections.emptyList()
     );
+
     @Autowired
     private TestRestTemplate testRestTemplate;
 
