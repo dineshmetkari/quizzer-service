@@ -5,6 +5,8 @@
 package net.loxal.quizzer;
 
 import com.datastax.driver.core.ConsistencyLevel;
+import com.datastax.driver.core.querybuilder.QueryBuilder;
+import com.datastax.driver.core.querybuilder.Select;
 import net.loxal.quizzer.dto.Uptime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,6 +34,7 @@ public class UptimeTests {
     private final static Logger LOG = LoggerFactory.getLogger(UptimeTests.class);
     private static final Uptime EXPECTED = new Uptime("http://example.com", 9);
     private static final Uptime EXPECTED_UPDATE = new Uptime(EXPECTED.getEndpoint(), 5);
+    private static final Select SELECTION = QueryBuilder.select().from(Uptime.class.getSimpleName());
 
     @Autowired
     private TestRestTemplate testRestTemplate;
@@ -44,7 +47,8 @@ public class UptimeTests {
         Uptime inserted = cassandraOperations.insert(EXPECTED);
         assertNotNull(inserted);
 
-        List<Uptime> created = cassandraOperations.select("select * from uptime", Uptime.class);
+        List<Uptime> created = cassandraOperations.select(SELECTION, Uptime.class);
+
         assertFalse(created.isEmpty());
         assertEquals(EXPECTED, created.get(0));
     }
@@ -52,7 +56,9 @@ public class UptimeTests {
     @Test
     public void delete() throws Exception {
         cassandraOperations.deleteAll(Uptime.class);
-        List<Uptime> readFromEmptyTable = cassandraOperations.select("select * from uptime", Uptime.class);
+
+        List<Uptime> readFromEmptyTable = cassandraOperations.select(SELECTION, Uptime.class);
+
         assertTrue(readFromEmptyTable.isEmpty());
     }
 
