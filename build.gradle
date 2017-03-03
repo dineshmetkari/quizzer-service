@@ -53,8 +53,8 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
 
-    compile "org.springframework.data:spring-data-couchbase:2.2.0.RELEASE"
-    compile "org.springframework.data:spring-data-cassandra:1.5.0.RELEASE"
+    compile "org.springframework.data:spring-data-couchbase:2.2.1.RELEASE"
+    compile "org.springframework.data:spring-data-cassandra:1.5.1.RELEASE"
     // required to pass Couchbase integration tests while having Cassandra in-place
     testRuntime "io.netty:netty-codec-http2:4.1.8.Final"
 
