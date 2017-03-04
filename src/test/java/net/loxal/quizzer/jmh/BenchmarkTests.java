@@ -10,6 +10,7 @@ import net.loxal.quizzer.dto.Vote;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.Threads;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -39,6 +40,7 @@ public class BenchmarkTests {
     }
 
     @BenchmarkMode(Mode.SingleShotTime)
+    @Threads(2)
     @Benchmark
     public void benchmark() throws Exception {
         final TestRestTemplate testRestTemplate = new TestRestTemplate();
