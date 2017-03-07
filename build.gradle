@@ -4,7 +4,7 @@
 
 buildscript {
     ext {
-        springBootVersion = '1.5.1.RELEASE'
+        springBootVersion = '1.5.2.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -22,7 +22,7 @@ buildscript {
 }
 
 plugins {
-    id "org.springframework.boot" version "1.5.1.RELEASE"
+    id "org.springframework.boot" version "1.5.2.RELEASE"
     id "me.champeau.gradle.jmh" version "0.3.1"
 }
 
@@ -31,7 +31,6 @@ apply plugin: "idea"
 //apply plugin: "appengine"
 
 jar {
-//    baseName = 'quizzer-service'
     baseName = rootProject.name
     version = '1.0.0'
 }

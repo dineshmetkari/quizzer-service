@@ -46,7 +46,8 @@ public class BenchmarkTests {
         final TestRestTemplate testRestTemplate = new TestRestTemplate();
         final ResponseEntity<Vote> vote = testRestTemplate
                 .withBasicAuth(userName, userPassword)
-                .postForEntity("http://localhost:8200" + VoteController.ENDPOINT, VoteTests.EXPECTED_MULTIPLE_ANSWERS_CORRECT, Vote.class);
+                .postForEntity("http://localhost:8200" + VoteController.ENDPOINT,
+                        VoteTests.EXPECTED_MULTIPLE_ANSWERS_CORRECT, Vote.class);
 
         assertThat(vote.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         assertThat(vote.getBody()).isNotNull();
