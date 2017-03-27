@@ -28,6 +28,10 @@ to the `config` folder inside this project.
 ## Couchbase
 
     CREATE PRIMARY INDEX `#primary` ON `quizzer` USING GSI
+    
+## Cassandra
+
+    create keyspace quizzer with replication = {'class':'SimpleStrategy', 'replication_factor' : 2};
 
 # Run 
 
@@ -36,7 +40,9 @@ to the `config` folder inside this project.
     
 # Test
 
-    SPRING_CONFIG_NAME=prod,local,config ./gradlew clean test
+    ./gradlew clean test
+
+`SPRING_CONFIG_NAME=prod,local` is required to add a specific configuration’s properties.    
 
 # Benchmark / Performance Test
 
