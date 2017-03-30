@@ -27,11 +27,11 @@ to the `config` folder inside this project.
 
 ## Couchbase
 
-    CREATE PRIMARY INDEX `#primary` ON `quizzer` USING GSI
+    CREATE PRIMARY INDEX `#primary` ON `quizzer` 
     
 ## Cassandra
 
-    create keyspace quizzer with replication = {'class':'SimpleStrategy', 'replication_factor' : 2};
+    CREATE KEYSPACE quizzer WITH REPLICATION = {'class':'SimpleStrategy', 'replication_factor' : 2};
 
 # Run 
 
