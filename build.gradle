@@ -22,7 +22,7 @@ buildscript {
 }
 
 plugins {
-    id "org.springframework.boot" version "1.5.2.RELEASE"
+    id "org.springframework.boot" version "1.5.3.RELEASE"
     id "me.champeau.gradle.jmh" version "0.3.1"
 }
 
@@ -52,8 +52,8 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
 
-    compile "org.springframework.data:spring-data-couchbase:2.2.1.RELEASE"
-    compile "org.springframework.data:spring-data-cassandra:1.5.1.RELEASE"
+    compile "org.springframework.data:spring-data-couchbase:2.2.3.RELEASE"
+    compile "org.springframework.data:spring-data-cassandra:1.5.3.RELEASE"
     // required to pass Couchbase integration tests while having Cassandra in-place
     testRuntime "io.netty:netty-codec-http2:4.1.9.Final"
 
