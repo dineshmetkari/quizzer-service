@@ -1,0 +1,30 @@
+#
+# Copyright 2017 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
+#
+
+server:
+  port: 8200
+
+security:
+  user:
+    name: zp1PeVTh4mHgXozO5Dd0bCO8K2sONrRteHvzjMGC5+w=
+    password: Cce0P0fJSltekZtn68x+ZDGEepRCwpn+ATYjFUyZU/8=
+
+spring:
+  main:
+    banner-mode: "off"
+  output:
+    ansi:
+      enabled: always
+  application:
+    name: quizzer
+  data:
+    cassandra:
+      keyspace-name: ${couchbase.cluster.bucket}
+      contact-points: ${couchbase.cluster.ip}
+
+couchbase:
+  cluster:
+    ip: sky.loxal.net
+    bucket: ${spring.application.name}
+    password: ${security.user.password}

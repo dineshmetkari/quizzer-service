@@ -27,7 +27,7 @@ plugins {
 }
 
 apply plugin: "java-library"
-apply plugin: "idea" 
+apply plugin: "idea"
 //apply plugin: "appengine"
 
 jar {
@@ -52,12 +52,13 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
 
+    compile "org.springframework.vault:spring-vault-core:1.0.0.RELEASE"
     compile "org.springframework.data:spring-data-couchbase:2.2.3.RELEASE"
     compile "org.springframework.data:spring-data-cassandra:1.5.3.RELEASE"
     // required to pass Couchbase integration tests while having Cassandra in-place
-    testRuntime "io.netty:netty-codec-http2:4.1.9.Final"
+    testRuntime "io.netty:netty-codec-http2:4.1.10.Final"
 
-    testCompile "org.openjdk.jmh:jmh-generator-annprocess:1.18"
+    testCompile "org.openjdk.jmh:jmh-generator-annprocess:1.19"
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     testCompile "org.springframework.restdocs:spring-restdocs-mockmvc:1.2.0.RELEASE"
 }
@@ -68,5 +69,5 @@ jmh {
 }
 
 tasks.withType(JavaCompile) {
-   options.incremental = true // one flag, and things will get MUCH faster
+    options.incremental = true // one flag, and things will get MUCH faster
 }

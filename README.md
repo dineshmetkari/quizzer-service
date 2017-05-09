@@ -31,7 +31,7 @@ to the `config` folder inside this project.
     
 ## Cassandra
 
-    CREATE KEYSPACE quizzer WITH REPLICATION = {'class':'SimpleStrategy', 'replication_factor' : 2};
+    CREATE KEYSPACE quizzer WITH REPLICATION = {'class':'SimpleStrategy', 'replication_factor' : 1};
 
 # Run 
 

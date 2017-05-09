@@ -16,27 +16,23 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.yaml.snakeyaml.Yaml;
 
-import java.io.IOException;
-import java.util.Properties;
+import java.util.LinkedHashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BenchmarkTests {
     private final static Logger LOG = LoggerFactory.getLogger(BenchmarkTests.class);
 
-    private static final Properties PROPERTIES = new Properties();
     private static String userName;
     private static String userPassword;
 
     static {
-        try {
-            PROPERTIES.load(BenchmarkTests.class.getResourceAsStream("/application.properties"));
-            userName = PROPERTIES.getProperty("security.user.name");
-            userPassword = PROPERTIES.getProperty("security.user.password");
-        } catch (IOException e) {
-            LOG.error(e.getMessage());
-        }
+        final Yaml configurationContainer = new Yaml();
+        LinkedHashMap springBootConfiguration = (LinkedHashMap) configurationContainer.load(BenchmarkTests.class.getResourceAsStream("/application.yaml"));
+        userName = ((LinkedHashMap) ((LinkedHashMap) springBootConfiguration.get("security")).get("user")).get("name").toString();
+        userPassword = ((LinkedHashMap) ((LinkedHashMap) springBootConfiguration.get("security")).get("user")).get("password").toString();
     }
 
     @BenchmarkMode(Mode.SingleShotTime)

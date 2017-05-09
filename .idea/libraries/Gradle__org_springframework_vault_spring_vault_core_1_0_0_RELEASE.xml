@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.vault:spring-vault-core:1.0.0.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.vault/spring-vault-core/1.0.0.RELEASE/98e179fd71ef4c1c4a331ea58193d02f3ec7352f/spring-vault-core-1.0.0.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.vault/spring-vault-core/1.0.0.RELEASE/ffea8687b0fb7cf07f12af3856a631def1ecfa3b/spring-vault-core-1.0.0.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
