@@ -12,4 +12,4 @@ WORKDIR /home/$APP_USER
 ADD build/libs/*.jar app/
 #ENV SPRING_CONFIG_NAME prod,local,config
 
-CMD ["java", "-jar", "-Xmx64m", "app/quizzer-service-1.0.0.jar"]
+CMD ["java", "-jar", "-Xmx64m", "app/*.jar"]

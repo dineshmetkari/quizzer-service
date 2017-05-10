@@ -5,10 +5,9 @@
 server:
   port: 8200
 
-security:
-  user:
-    name: zp1PeVTh4mHgXozO5Dd0bCO8K2sONrRteHvzjMGC5+w=
-    password: Cce0P0fJSltekZtn68x+ZDGEepRCwpn+ATYjFUyZU/8=
+vault:
+  uri: http://${couchbase.cluster.ip}:8200
+  token: ${random.uuid} # introduce valid (root) token in your local configuration
 
 spring:
   main:

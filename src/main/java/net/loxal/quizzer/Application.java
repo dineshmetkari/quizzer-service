@@ -10,10 +10,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.cassandra.config.java.AbstractCassandraConfiguration;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 import org.springframework.data.couchbase.config.AbstractCouchbaseConfiguration;
 import org.springframework.data.couchbase.repository.config.EnableCouchbaseRepositories;
+import org.springframework.vault.annotation.VaultPropertySource;
+import org.springframework.vault.config.EnvironmentVaultConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +26,8 @@ import java.util.List;
 
 @SpringBootApplication
 @RestController
+@Import(EnvironmentVaultConfiguration.class)
+@VaultPropertySource(value = "secret/quizzer")
 public class Application {
 
     private final static Logger LOG = LoggerFactory.getLogger(Application.class);
@@ -39,7 +44,6 @@ public class Application {
     @EnableCassandraRepositories
     @Configuration
     static class ConfigurationCassandra extends AbstractCassandraConfiguration {
-
         @Value("${spring.data.cassandra.contact-points}")
         private String contactPoints;
 
@@ -60,7 +64,6 @@ public class Application {
     @EnableCouchbaseRepositories
     @Configuration
     static class ConfigurationCouchbase extends AbstractCouchbaseConfiguration {
-
         @Value("${couchbase.cluster.bucket}")
         private String bucketName;
 

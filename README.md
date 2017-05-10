@@ -35,14 +35,14 @@ to the `config` folder inside this project.
 
 # Run 
 
-    ./gradlew bootRun -D spring.config.name=prod,local,config
+    ./run.sh
     open http://localhost:8200
     
 # Test
 
-    ./gradlew clean test
+    ./test.sh
 
-`SPRING_CONFIG_NAME=prod,local` is required to add a specific configuration’s properties.    
+`SPRING_CONFIG_NAME=prod,local` environment property is required to add a specific configuration’s properties.    
 
 # Benchmark / Performance Test
 
