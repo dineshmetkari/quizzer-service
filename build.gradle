@@ -57,7 +57,7 @@ dependencies {
     compile "org.springframework.data:spring-data-cassandra:1.5.3.RELEASE"
 
     // required for: Cassandra, Vault
-    runtimeOnly "io.netty:netty-codec-http2:4.1.10.Final"
+    runtime "io.netty:netty-codec-http2:4.1.10.Final"
 
     testCompile "org.openjdk.jmh:jmh-generator-annprocess:1.19"
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
