@@ -8,11 +8,12 @@
 ./gradlew clean build
 
 DOCKER_IMAGE_NAME=quizzer
+DOCKER_TAG=latest
 
 # docker login -u loxal
-docker build --tag=loxal/$DOCKER_IMAGE_NAME:v1 .
-docker push loxal/$DOCKER_IMAGE_NAME:v1
+docker build --tag=loxal/$DOCKER_IMAGE_NAME:$DOCKER_TAG .
+docker push loxal/$DOCKER_IMAGE_NAME:$DOCKER_TAG
 docker rm -f $DOCKER_IMAGE_NAME
-docker run -d -p 82:8200 --name $DOCKER_IMAGE_NAME loxal/$DOCKER_IMAGE_NAME:v1
+docker run -d -p 82:8200 --name $DOCKER_IMAGE_NAME loxal/$DOCKER_IMAGE_NAME:$DOCKER_TAG
 
 docker rmi $(docker images -f "dangling=true" -q) # cleanup, GC for dangling images
