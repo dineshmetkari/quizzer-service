@@ -70,5 +70,6 @@ jmh {
 }
 
 tasks.withType(JavaCompile) {
-    options.incremental = true // one flag, and things will get MUCH faster
+    options.fork = true
+    options.incremental = true 
 }
