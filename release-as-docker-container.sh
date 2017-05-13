@@ -14,6 +14,6 @@ DOCKER_TAG=latest
 docker build --tag=loxal/$DOCKER_IMAGE_NAME:$DOCKER_TAG .
 docker push loxal/$DOCKER_IMAGE_NAME:$DOCKER_TAG
 docker rm -f $DOCKER_IMAGE_NAME
-docker run -d -p 82:8200 --name $DOCKER_IMAGE_NAME loxal/$DOCKER_IMAGE_NAME:$DOCKER_TAG
+docker run -d -p 82:8200 -e VAULT_TOKEN=insert_token_here_release_script --name $DOCKER_IMAGE_NAME loxal/$DOCKER_IMAGE_NAME:$DOCKER_TAG
 
 docker rmi $(docker images -f "dangling=true" -q) # cleanup, GC for dangling images

@@ -27,9 +27,21 @@ to the `config` folder inside this project.
 
 ## Couchbase
 
+    docker rm -f couchbase
+    docker run -d --name couchbase \
+        -p 8091-8094:8091-8094 -p 11210:11210 \
+        -v ~/srv/couchbase:/opt/couchbase/var/lib/couchbase \
+        couchbase:community
+
     CREATE PRIMARY INDEX `#primary` ON `quizzer` 
     
 ## Cassandra
+
+    docker rm -f cassandra
+    docker run -it -d --name cassandra \
+        -p 9042:9042 \
+        -v ~/srv/cassandra:/var/lib/cassandra \
+        cassandra:3
 
     CREATE KEYSPACE quizzer WITH REPLICATION = {'class':'SimpleStrategy', 'replication_factor' : 1};
 
@@ -42,7 +54,7 @@ to the `config` folder inside this project.
 
     ./test.sh
 
-`SPRING_CONFIG_NAME=prod,local` environment property is required to add a specific configuration’s properties.    
+`SPRING_CONFIG_NAME=application,local` environment property is required to add a specific configuration’s properties.    
 
 # Benchmark / Performance Test
 
