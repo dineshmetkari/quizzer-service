@@ -56,12 +56,12 @@ dependencies {
     compile "io.springfox:springfox-swagger-ui:2.6.1"
 
     compile "org.springframework.security.oauth:spring-security-oauth2:2.1.0.RELEASE"
-    compile "org.springframework.vault:spring-vault-core:1.0.0.RELEASE"
+    compile "org.springframework.vault:spring-vault-core:1.0.1.RELEASE"
     compile "org.springframework.data:spring-data-couchbase:2.2.3.RELEASE"
     compile "org.springframework.data:spring-data-cassandra:1.5.3.RELEASE"
 
     // required for: Cassandra, Vault
-    runtime "io.netty:netty-codec-http2:4.1.10.Final"
+    runtime "io.netty:netty-codec-http2:4.1.11.Final"
 
     testCompile "org.openjdk.jmh:jmh-generator-annprocess:1.19"
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"

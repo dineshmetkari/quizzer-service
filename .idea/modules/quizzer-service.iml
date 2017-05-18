@@ -21,8 +21,23 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.vault:spring-vault-core:1.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.restdocs:spring-restdocs-core:1.1.2.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-common:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-resolver:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-buffer:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-transport:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-codec:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-handler:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-codec-http:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-codec-http2:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-common:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-resolver:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-buffer:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-transport:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-codec:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-handler:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-codec-http:4.1.11.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-codec-http2:4.1.11.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.restdocs:spring-restdocs-mockmvc:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.springfox:springfox-swagger-ui:2.6.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.springfox:springfox-swagger-ui:2.6.1" level="project" />
@@ -134,24 +149,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-starter-undertow:1.5.3.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-starter-security:1.5.3.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.boot:spring-boot-starter-hateoas:1.5.3.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-common:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-resolver:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-buffer:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-transport:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-codec:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-handler:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-codec-http:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-codec-http2:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-common:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-resolver:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-buffer:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-transport:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-codec:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-handler:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-codec-http:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.netty:netty-codec-http2:4.1.10.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.vault:spring-vault-core:1.0.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.vault:spring-vault-core:1.0.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.openjdk.jmh:jmh-core:1.19" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.openjdk.jmh:jmh-generator-annprocess:1.19" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.data:spring-data-couchbase:2.2.3.RELEASE" level="project" />
@@ -312,5 +309,8 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.mapstruct:mapstruct:1.0.0.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.springfox:springfox-core:2.6.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.vault:spring-vault-core:1.0.1.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.vault:spring-vault-core:1.0.1.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.vault:spring-vault-core:1.0.1.RELEASE" level="project" />
   </component>
 </module>
