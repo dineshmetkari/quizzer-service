@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.cassandra.config.java.AbstractCassandraConfiguration;
@@ -19,6 +20,11 @@ import org.springframework.vault.annotation.VaultPropertySource;
 import org.springframework.vault.config.EnvironmentVaultConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.security.Principal;
 import java.util.Collections;
@@ -28,6 +34,8 @@ import java.util.List;
 @RestController
 @Import(EnvironmentVaultConfiguration.class)
 @VaultPropertySource(value = "secret/quizzer")
+//@EnableOAuth2Sso
+@EnableSwagger2
 public class Application {
 
     private final static Logger LOG = LoggerFactory.getLogger(Application.class);
@@ -39,6 +47,15 @@ public class Application {
     @RequestMapping("/user")
     public Principal user(Principal principal) {
         return principal;
+    }
+
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
+                .build();
     }
 
     @EnableCassandraRepositories

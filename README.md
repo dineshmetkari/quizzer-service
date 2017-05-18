@@ -23,6 +23,10 @@ Quiz Service
 Add a [configuration profile](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties) 
 to the `config` folder inside this project.
 
+# API Reference
+
+    http://localhost:8200/swagger-ui.html
+
 # Initialization
 
 ## Couchbase

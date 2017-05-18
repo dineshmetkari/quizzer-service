@@ -52,6 +52,10 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
 
+    compile "io.springfox:springfox-swagger2:2.6.1"
+    compile "io.springfox:springfox-swagger-ui:2.6.1"
+
+    compile "org.springframework.security.oauth:spring-security-oauth2:2.1.0.RELEASE"
     compile "org.springframework.vault:spring-vault-core:1.0.0.RELEASE"
     compile "org.springframework.data:spring-data-couchbase:2.2.3.RELEASE"
     compile "org.springframework.data:spring-data-cassandra:1.5.3.RELEASE"
