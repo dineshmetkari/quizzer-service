@@ -10,6 +10,9 @@ vault:
   token: ${random.uuid} # introduce valid (root) token in your local configuration
 
 spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
   main:
     banner-mode: "off"
   output:
