@@ -5,6 +5,36 @@
 server:
   port: 8200
 
+security:
+  oauth2:
+    client:
+      client-id: some-id
+      client-secret: some-secret
+      scope: read,write
+      auto-approve-scopes: '.*'
+
+facebook:
+  client:
+    clientId: 277335132728142
+    clientSecret: 12e0a44bad995ab0e41811f03bf11e95
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://graph.facebook.com/me
+
+github:
+  client:
+    clientId: 51ddf3aea6097a04b03c
+    clientSecret: a547d107a72a20cdedb170bd86bcbda780dedb62
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+
 vault:
   uri: http://${couchbase.cluster.ip}:8200
   token: ${random.uuid} # introduce valid (root) token in your local configuration

@@ -5,6 +5,7 @@
 buildscript {
     ext {
         springBootVersion = '1.5.3.RELEASE'
+        swaggerVersion = '2.6.1'
     }
     repositories {
         mavenCentral()
@@ -48,12 +49,15 @@ configurations {
 }
 
 dependencies {
+    compile "org.webjars:angularjs:1.4.3"
+    compile "org.webjars:webjars-locator:0.32-1"
+
     compile "org.springframework.boot:spring-boot-starter-hateoas:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
 
-    compile "io.springfox:springfox-swagger2:2.6.1"
-    compile "io.springfox:springfox-swagger-ui:2.6.1"
+    compile "io.springfox:springfox-swagger2:${swaggerVersion}"
+    compile "io.springfox:springfox-swagger-ui:${swaggerVersion}"
 
     compile "org.springframework.security.oauth:spring-security-oauth2:2.1.0.RELEASE"
     compile "org.springframework.vault:spring-vault-core:1.0.1.RELEASE"
@@ -65,7 +69,7 @@ dependencies {
 
     testCompile "org.openjdk.jmh:jmh-generator-annprocess:1.19"
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
-    testCompile "org.springframework.restdocs:spring-restdocs-mockmvc:1.2.0.RELEASE"
+    testCompile "org.springframework.restdocs:spring-restdocs-mockmvc:1.2.1.RELEASE"
 }
 
 jmh {
@@ -75,9 +79,9 @@ jmh {
 
 tasks.withType(JavaCompile) {
     options.fork = true
-    options.incremental = true 
+    options.incremental = true
 }
 
 bootRun {
-    jvmArgs = ['-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005']
+    jvmArgs = ['-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=127.0.0.1:5005']
 }
