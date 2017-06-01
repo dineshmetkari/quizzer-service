@@ -22,21 +22,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.vault:spring-vault-core:1.0.1.RELEASE" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.webjars:angularjs:1.4.3" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.webjars:angularjs:1.4.3" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.webjars:angularjs:1.4.3" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.apache.commons:commons-compress:1.9" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.apache.commons:commons-lang3:3.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.webjars:webjars-locator-core:0.32" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.webjars:webjars-locator:0.32-1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.commons:commons-compress:1.9" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.commons:commons-lang3:3.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.webjars:webjars-locator-core:0.32" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.webjars:webjars-locator:0.32-1" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.commons:commons-compress:1.9" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.commons:commons-lang3:3.1" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.webjars:webjars-locator-core:0.32" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.webjars:webjars-locator:0.32-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.webjars:angularjs:1.6.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.webjars:angularjs:1.6.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.webjars:angularjs:1.6.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.guava:guava:19.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.springfox:springfox-core:2.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.mapstruct:mapstruct:1.0.0.Final" level="project" />
@@ -88,13 +76,10 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.netty:netty-codec-http2:4.1.11.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.security.oauth:spring-security-oauth2:2.1.0.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.security.oauth:spring-security-oauth2:2.1.0.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.security.oauth:spring-security-oauth2:2.1.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: ch.qos.logback:logback-core:1.1.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: net.minidev:accessors-smart:1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.slf4j:log4j-over-slf4j:1.7.25" level="project" />
@@ -327,5 +312,8 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.vault:spring-vault-core:1.0.1.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.restdocs:spring-restdocs-mockmvc:1.2.1.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.restdocs:spring-restdocs-core:1.1.2.RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE" level="project" />
   </component>
 </module>

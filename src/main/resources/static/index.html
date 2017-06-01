@@ -12,21 +12,14 @@
 
 <div class="container" ng-show="home.authenticated">
     <span ng-bind="home.user"></span>
-    <div>
-        <button ng-click="home.logout()" class="btn btn-primary">Logout</button>
-    </div>
+    <button ng-click="home.logout()" class="btn btn-primary">Logout</button>
 </div>
 
 <ul>
-    <li><a href="/privacy.html">Privacy</a></li>
-    <li><a href="/tos.html">Terms of Service</a></li>
-    <li><a href="/votes/1">Votes</a></li>
     <li><a href="/polls/simpsons-1">Polls</a></li>
     <li><a href="/swagger-ui.html">API Specification</a></li>
-    <li><a href="/login">Generic Login</a></li>
     <li><a href="/login/facebook">Login with Facebook</a></li>
     <li><a href="/login/github">Login with GitHub</a></li>
-    <li><a href="/logout">Logout</a></li>
 </ul>
 
 <script src="/webjars/angularjs/angular.min.js"></script>

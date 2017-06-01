@@ -6,7 +6,8 @@ buildscript {
     ext {
         springBootVersion = '1.5.3.RELEASE'
         swaggerVersion = '2.6.1'
-    }
+//        swaggerVersion = '2.7.0'
+    }   
     repositories {
         mavenCentral()
         maven {
@@ -49,8 +50,8 @@ configurations {
 }
 
 dependencies {
-    compile "org.webjars:angularjs:1.4.3"
-    compile "org.webjars:webjars-locator:0.32-1"
+    compile "org.webjars:angularjs:1.6.4"
+//    compile "org.webjars:webjars-locator:0.32-1"
 
     compile "org.springframework.boot:spring-boot-starter-hateoas:${springBootVersion}"
     compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
@@ -59,7 +60,7 @@ dependencies {
     compile "io.springfox:springfox-swagger2:${swaggerVersion}"
     compile "io.springfox:springfox-swagger-ui:${swaggerVersion}"
 
-    compile "org.springframework.security.oauth:spring-security-oauth2:2.1.0.RELEASE"
+    compile "org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE"
     compile "org.springframework.vault:spring-vault-core:1.0.1.RELEASE"
     compile "org.springframework.data:spring-data-couchbase:2.2.3.RELEASE"
     compile "org.springframework.data:spring-data-cassandra:1.5.3.RELEASE"

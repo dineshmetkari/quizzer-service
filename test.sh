@@ -1,3 +1,13 @@
 #!/usr/bin/env bash
 
-SPRING_CONFIG_NAME=application,local ./gradlew clean test
+execute() {
+    SPRING_CONFIG_NAME=application,local ./gradlew clean test \
+        --no-rebuild \
+        --build-cache \
+        --continuous \
+        --parallel \
+        --no-scan \
+#        -Ddebug \
+#        --debug
+}
+execute
