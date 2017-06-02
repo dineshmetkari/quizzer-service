@@ -5,8 +5,9 @@
 buildscript {
     ext {
         springBootVersion = '1.5.3.RELEASE'
-        swaggerVersion = '2.7.0'
-    }   
+//        swaggerVersion = '2.7.0'
+        swaggerVersion = '2.6.1'
+    }
     repositories {
         mavenCentral()
         maven {
@@ -67,7 +68,7 @@ dependencies {
     runtime "io.netty:netty-codec-http2:4.1.11.Final"
 
     // to enable Datastax’ Cassandra driver running alongside Swagger 2.7.0
-    runtimeOnly "com.google.guava:guava:19.0"
+//    runtimeOnly "com.google.guava:guava:19.0"
 
     testCompile "org.openjdk.jmh:jmh-generator-annprocess:1.19"
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
