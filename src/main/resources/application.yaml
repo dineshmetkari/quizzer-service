@@ -12,10 +12,10 @@ security:
       client-secret: some-secret
       scope: read,write
       auto-approve-scopes: '.*'
-      access-token-uri: http://localhost:8080/oauth/token
-      user-authorization-uri: http://localhost:8080/oauth/authorize
-    resource:
-      user-info-uri: http://localhost:8080/me
+#      access-token-uri: http://localhost:8080/oauth/token
+#      user-authorization-uri: http://localhost:8080/oauth/authorize
+#    resource:
+#      user-info-uri: http://localhost:8080/me
 
 facebook:
   client:
