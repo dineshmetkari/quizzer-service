@@ -19,7 +19,7 @@ security:
 
 facebook:
   client:
-    clientId: 277335132728142
+    clientId: 696049080584138
 #    clientSecret: ${random.uuid} # add valid token to your local configuration
     accessTokenUri: https://graph.facebook.com/oauth/access_token
     userAuthorizationUri: https://www.facebook.com/dialog/oauth
@@ -31,7 +31,7 @@ facebook:
 
 github:
   client:
-    clientId: 51ddf3aea6097a04b03c
+    clientId: 81737a2de2a17a289fba
 #    clientSecret: ${random.uuid} # add valid token to your local configuration
     accessTokenUri: https://github.com/login/oauth/access_token
     userAuthorizationUri: https://github.com/login/oauth/authorize
