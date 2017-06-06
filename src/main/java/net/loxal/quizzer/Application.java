@@ -112,7 +112,6 @@ public class Application extends WebSecurityConfigurerAdapter {
                 ).permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"))
-//                .and().logout().logoutSuccessUrl("/").permitAll()
                 .and().logout().logoutSuccessUrl("/start.html").permitAll()
                 .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .ignoringAntMatchers("/polls/**", "/certificates/**", "/votes/**")

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.webjars:angularjs:1.5.9">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars/angularjs/1.5.9/8fa48fe181274614143f5a6b2c38978bbf0ef68a/angularjs-1.5.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars/angularjs/1.5.9/69b379c77b90ba5a6f9e8e81ef82e4c6de0a20e5/angularjs-1.5.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

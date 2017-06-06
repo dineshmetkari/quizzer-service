@@ -9,6 +9,7 @@
 
 DOCKER_IMAGE_NAME=quizzer
 DOCKER_TAG=latest
+#DOCKER_TAG=v1
 
 # docker login -u loxal
 docker build --tag=loxal/$DOCKER_IMAGE_NAME:$DOCKER_TAG .
