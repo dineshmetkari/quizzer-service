@@ -4,8 +4,9 @@ execute() {
     SPRING_CONFIG_NAME=application,local ./gradlew clean test \
         --parallel \
         --no-scan \
+        --no-rebuild \
+        --info \
 #        --continuous \
-#        --no-rebuild \
 #        --build-cache \
 #        -Ddebug \
 #        --debug
