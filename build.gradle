@@ -4,7 +4,7 @@
 
 buildscript {
     ext {
-        springBootVersion = '1.5.3.RELEASE'
+        springBootVersion = '1.5.4.RELEASE'
 //        swaggerVersion = '2.7.0'
         swaggerVersion = '2.6.1'
     }
@@ -24,7 +24,7 @@ buildscript {
 }
 
 plugins {
-    id "org.springframework.boot" version "1.5.3.RELEASE"
+    id "org.springframework.boot" version "1.5.4.RELEASE"
     id "me.champeau.gradle.jmh" version "0.3.1"
 }
 
@@ -62,8 +62,8 @@ dependencies {
 
     compile "org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE"
     compile "org.springframework.vault:spring-vault-core:1.0.1.RELEASE"
-    compile "org.springframework.data:spring-data-couchbase:2.2.3.RELEASE"
-    compile "org.springframework.data:spring-data-cassandra:1.5.3.RELEASE"
+    compile "org.springframework.data:spring-data-couchbase:2.2.4.RELEASE"
+    compile "org.springframework.data:spring-data-cassandra:1.5.4.RELEASE"
 
     // required for: Cassandra, Vault
     runtime "io.netty:netty-codec-http2:4.1.11.Final"

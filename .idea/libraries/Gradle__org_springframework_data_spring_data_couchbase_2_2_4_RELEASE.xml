@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.data:spring-data-couchbase:2.2.4.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-couchbase/2.2.4.RELEASE/134f3ba5fba1c3d3c4076081972fd8d70281b1d/spring-data-couchbase-2.2.4.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-couchbase/2.2.4.RELEASE/8a245fe9f41246b4fc0660bca050068f40a0e154/spring-data-couchbase-2.2.4.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
