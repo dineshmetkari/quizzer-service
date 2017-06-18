@@ -5,7 +5,8 @@
 buildscript {
     ext {
         springBootVersion = '1.5.4.RELEASE'
-        swaggerVersion = '2.7.0'
+//        swaggerVersion = '2.7.0'
+        swaggerVersion = '2.6.1'
     }
     repositories {
         mavenCentral()
@@ -60,15 +61,15 @@ dependencies {
     compile "io.springfox:springfox-swagger-ui:${swaggerVersion}"
 
     compile "org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE"
-    compile "org.springframework.vault:spring-vault-core:1.0.1.RELEASE"
+    compile "org.springframework.vault:spring-vault-core:1.0.2.RELEASE"
     compile "org.springframework.data:spring-data-couchbase:2.2.4.RELEASE"
     compile "org.springframework.data:spring-data-cassandra:1.5.4.RELEASE"
 
     // required for: Cassandra, Vault
-    runtime "io.netty:netty-codec-http2:4.1.11.Final"
+    runtime "io.netty:netty-codec-http2:4.1.12.Final"
 
     // to enable Datastax’ Cassandra driver running alongside Swagger 2.7.0
-    runtimeOnly "com.google.guava:guava:19.0"
+//    runtimeOnly "com.google.guava:guava:19.0"
 
     testCompile "org.openjdk.jmh:jmh-generator-annprocess:1.19"
     testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
