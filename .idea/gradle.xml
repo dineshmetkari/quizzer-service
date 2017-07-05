@@ -9,7 +9,7 @@
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
-            <option value="$USER_HOME$/Google Drive/my/project/loxal/quizzer-service" />
+            <option value="$PROJECT_DIR$" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
